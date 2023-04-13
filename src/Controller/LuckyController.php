@@ -27,7 +27,7 @@ class LuckyController extends AbstractController
     public function about(): Response
     {
         $gitCourse = "https://github.com/dbwebb-se/mvc";
-        $gitMe = "https://github.com/Franzeen/Report";
+        $gitMe = "https://github.com/Franzeen/mvc-report";
         $image = "img/symfony.jpg";
 
         $data = [
