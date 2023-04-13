@@ -1,8 +1,7 @@
 <?php
 
 namespace app\Card;
-
-// Klassen Card som representerar ett kort
+// Class Card represent one card
 class Card {
     protected $value;
     protected $suit;
