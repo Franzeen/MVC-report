@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_title %}Hem{% endblock %}
+
+{% block content %}
+    <h1>Om mig</h1>
+    <p>
+        Mitt namn är <strong>Adam Franzén</strong>, född och uppvuxen strax utanför 
+        Kalmar i de småländska skogarna. Under fritiden blir det numera studerande/plugg, 
+        men även en hel del träning i olika former, styrketräning, golf, innebandy osv.
+        Rörelse får mig att må bra och underlättar fokus och kreativitet i vardagen.
+    </p>
+    <p>
+        Efter gymnasiet så började jag studera till högskoleingenjör i maskinteknik på BTH.
+        Därefter flyttade jag tillbaka till Kalmar och tog mitt första jobb på ett konsultbolag.
+        Jag fick mitt uppdrag på Scania Oskarshamn som produktionstekniker.
+        I den rollen blev jag kvar i tre år.
+        Därefeter tog jag anställning på Scania, men i rollen som Projektledare och där är jag kvar i dag också.
+    </p>
+    <p>
+        Väl mött!
+    </p>
+    <figure>
+        <img src="{{ asset( image ) }}" alt="Bild på mig">
+        <figcaption>En bild på mig</figcaption>
+    </figure>
+
+    
+{% endblock %}

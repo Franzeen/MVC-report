@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Om kursen{% endblock %}
+
+{% block page_title %}Om kursen{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="column">
+            <h2>Om kursen MVC</h2>
+            <p>
+                Kursen Objektorienterade webbteknologier, MVC, lär ut grunderna i objektorienterad programmering i PHP.
+                Med hjälp av ramverk, databaser och enhetstestning kommer grundläggande webbprogrammering och databas 
+                hantering med PHP att läras ut. Även hur man använder objektorientering som ett sätt att strukturera och 
+                återanvända kod.
+            </p>
+            <p>Mer information finns på <a href="{{ gitCourse }}">Git-repot för kursen</a>.</p>
+            <img src="{{ asset( image ) }}" alt="Symfony">
+        </div>
+        <div class="column">
+            <h2>Mitt GitHub-repo</h2>
+            <p>Besök mitt GitHub-repo för att se fler av mina projekt och kodexempel.</p>
+            <p><a href="{{ gitMe }}">GitHub-repo</a></p>
+        </div>
+    </div>
+
+{% endblock %}

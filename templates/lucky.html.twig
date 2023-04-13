@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block page_title %}Lucky Number{% endblock %}
+
+{% block content %}
+
+    <h1>Ditt turnummer för dagen är: {{ luckyNumber }}</h1>
+
+    <img src="{{ asset( image ) }}" alt="Random image">
+
+{% endblock %}

@@ -1,0 +1,91 @@
+/** base.scss */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    min-height: 100%;
+    background-color: $light-background-color;
+}
+
+main {
+    max-width: $max-width;
+    margin: 0 auto;
+    line-height: $line-height;
+    margin-bottom: $margin-bottom;
+}
+
+h1,
+h2,
+h3 {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: $h1-font-size;
+    margin-bottom: $margin-bottom*2;
+}
+
+h2 {
+    font-size: $h2-font-size;
+    margin-bottom: $margin-bottom;
+}
+
+h3 {
+    font-size: $h3-font-size;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: $font-size;
+    margin-bottom: 0;
+}
+
+header {
+    border-bottom: 2px dotted black;
+}
+
+.pageTitle {
+   display: block;
+   text-align: center; 
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.navbar a {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    border-radius: 0.5rem;
+    min-width: 4rem;
+}
+  
+.navbar a:hover {
+    background-color: #666;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 100px;
+    height: auto;
+    width: 100vw;
+    padding-top: $padding;
+    border-top: 2px dotted black;
+}
