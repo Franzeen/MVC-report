@@ -41,4 +41,14 @@ class Card {
     {
         return $this->value . ' of ' . $this->suit;
     }
+
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
+    }
+
+    public function setSuit(string $suit): void
+    {
+        $this->suit = $suit;
+    }
 }
