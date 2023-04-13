@@ -1,6 +1,7 @@
 <?php
 
-namespace app\Card;
+namespace App\Card;
+
 // Class Card represent one card
 class Card {
     protected $value;
