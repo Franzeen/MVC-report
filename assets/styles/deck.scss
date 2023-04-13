@@ -1,0 +1,17 @@
+.deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.card-deck {
+    font-size: 50px;
+}
+
+// .card-suit {
+//     display: flex;
+//     flex-direction: column;
+//     margin-right: 1rem;
+//     text-align: center;
+// }

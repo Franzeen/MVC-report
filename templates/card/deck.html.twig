@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block page_title %}Card Game{% endblock %}
+
+{% block content %}
+    <h1>Kortlekens kort:</h1>
+
+    <div class="deck">
+        {% for card in cardDraw %}
+            <div class="card-deck">{{ card }}</div>
+        {% endfor %}
+    </div>
+    
+
+{% endblock %}
