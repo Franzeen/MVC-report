@@ -7,19 +7,8 @@
 {% block content %}
     <h1>Kortlekens kort:</h1>
 
-    {# {% set suits = ['spades', 'hearts', 'diamonds', 'clovers'] %}
-
-    {% set cardIndex = 0 %} #}
-
-    {# <div class="deck">
-        {% for card in cardDraw %}
-            {% set suitClass = suits[cardIndex // 13] %}
-            <div class="card-deck {{ suitClass }}">{{ card }}</div>
-            {% set cardIndex = cardIndex + 1 %}
-        {% endfor %}
-    </div> #}
     <div class="deck">
-    {% for card in cardDraw %}
+    {% for card in shuffledDeck %}
         {% set suit = card|slice(6, 1) %}
         {% if suit == 'C' %}
             <div class="card-deck diamonds">{{ card|raw }}</div>
@@ -34,5 +23,5 @@
     </div>
 
     {% include 'card/deck_nav.html.twig' %}
-
+    
 {% endblock %}

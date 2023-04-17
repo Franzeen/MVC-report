@@ -5,14 +5,52 @@
 {% block page_title %}Card Game{% endblock %}
 
 {% block content %}
-    <h1>Card game</h1>
+    <div class="two-col">
+        <div class="col-content">
+            <h3>Klasser och struktur</h3>
+            <p>
+                Jag använder mig utav fyra stycken klasser - Card, CardGraphics, 
+                CardHand och DeckOfCards.
+            </p>
+            <p>
+                Klassen Card representerar ett enskilt kort med egenskaperna värde och färg.
+                De metoder som klassen har är getValue, getSuit, getAsString, setValue och setSuit.
+                Klassen CardGraphics ärver från Card men innehåller också en extra metod för att hantera 
+                en grafisk representation av ett kort.
+            </p>
+            <p>
+                Både CardHand och DeckOfCards är en komposition av Card. CardHand representerar en hand av kort 
+                som en spelare har på handen. Varje hand är en samling av kortobjekt. Det finns metoder för att 
+                lägg till kort, hämta antalet kort samt hämta en strängrepresentation av handens kort. DeckOfCards 
+                representerar en hel kortlek, en samling av objekt. Denna klass innehåller metoder för att skapa 
+                och blanda en kortlek. Men även moetoder för att dra ett eller flera kort från leken samt för att 
+                hämta ut hur många kort som finns kvar i leken.
+            </p>
+            <p>
+                Det finns även en associationsrelation mellan DeckOfCards och CardHand eftersom DeckOfCards kan 
+                ge kort till CardHand objekt.
+            </p>
+        </div>
 
-    <p>Kortspel första utgåva</p>
+        <div class="col-content">
+            <img src="{{ asset( imageUML ) }}" alt="Cards">
+        </div>
+    </div>
 
-    <p>{{ cardGraphic }}</p>
-    <p>{{ cardValue }}</p>
-    <p>{{ cardSuit }}</p>
+    <div class="two-col">
+        <div class="col-content">
+            <h1>Card game</h1>
 
+            <h3>Välkommen till Page of Cards.</h3>
+            <p>Gör ditt val med hjälp av knapparna nedanför.</p>
+        </div>
+        
+        <div class="col-content">
+            <img src="{{ asset( imageCard ) }}" alt="Cards">
+        </div>
+    </div>
     
+
+    {% include 'card/deck_nav.html.twig' %}
 
 {% endblock %}
