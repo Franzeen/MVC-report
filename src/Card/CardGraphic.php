@@ -75,6 +75,7 @@ class CardGraphic extends Card
 
     public function getAsString(): string
     {
-        return html_entity_decode($this->unicode[$this->suit][$this->value], ENT_QUOTES, 'UTF-8');
+        return $this->unicode[$this->suit][$this->value];
+        // return html_entity_decode($this->unicode[$this->suit][$this->value], ENT_QUOTES, 'UTF-8');
     }
 }
