@@ -40,4 +40,24 @@ class DeckOfCards
 
         return $result;
     }
+
+    public function shuffleDeck(): void
+    {
+        shuffle($this->deck);
+    }
+
+    public function drawCard(int $numDraws = 1): array
+    {
+        $draws = [];
+
+        for ($i = 0; $i < $numDraws; $i++) {
+            if (!empty($this->deck)) {
+                $draws[] = array_pop($this->deck);
+            } else {
+                break;
+            }
+        }
+
+        return $draws;
+    }
 }
