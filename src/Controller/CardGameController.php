@@ -8,6 +8,8 @@ use App\Card\CardHand;
 use App\Card\DeckOfCards;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CardGameController extends AbstractController
@@ -15,13 +17,12 @@ class CardGameController extends AbstractController
     #[Route("/card", name: "card_start")]
     public function home(): Response
     {
-        $card = new CardGraphic();
+        $image_card = "img/cards.jpg";
+        $image_UML = "img/UMLclass.png";
 
         $data = [
-            "card" => $card->draw(),
-            "cardGraphic" => $card->getAsString(),
-            "cardValue" => $card->getValue(),
-            "cardSuit" => $card->getSuit()
+            'imageCard' => $image_card,
+            'imageUML' => $image_UML,
         ];
 
         return $this->render('card/home.html.twig', $data);
@@ -40,46 +41,63 @@ class CardGameController extends AbstractController
         return $this->render('card/deck.html.twig', $data);
     }
 
-
-
-
-
-    #[Route("/card/test/deck", name: "test_deck")]
-    public function testDeck(): Response
+    #[Route("/card/deck/shuffle", name: "deck_shuffle")]
+    public function shuffleDeck(Request $request): Response
     {
+        $session = $request->getSession();
+
         $deck = new DeckOfCards();
-        $deck->createDeck(new Card());
+        $deck->createDeck(new CardGraphic());
+        $deck->shuffleDeck();
+
+        $session->set('deck', $deck);
 
         $data = [
-            "num_cards" => $deck->getNumCards(),
-            "cardDraw" => $deck->getAsString()
+            "shuffledDeck" => $deck->getAsString()
         ];
 
-        return $this->render('card/test/deck.html.twig', $data);
+        return $this->render('card/deck_shuffle.html.twig', $data);
     }
 
-
-    #[Route("/card/test/deckhand/{num<\d+>}", name: "test_dicehand")]
-    public function testDeckHand(int $num): Response
+    #[Route("/card/deck/draw/{num<\d+>}", name: "deck_draw", methods: ['GET'])]
+    public function drawCard(Request $request, int $num = 1): Response
     {
-        if ($num > 52) {
-            throw new \Exception("There is not more than 52 cards in a deck.");
+        $session = $request->getSession();
+
+        if (!$session->has('deck')) {
+            $deck = new DeckOfCards();
+            $deck->createDeck(new CardGraphic());
+            $deck->shuffleDeck();
+            $session->set('deck', $deck);
+        } else {
+            $deck = $session->get('deck');
         }
 
-        $hand = new CardHand();
-        for ($i = 1; $i <= $num; $i++) {
-            $hand->add(new CardGraphic());
+        $drawCard = $deck->drawCard($num);
+
+        $cardHand = new CardHand();
+
+        foreach ($drawCard as $card) {
+            $cardHand->add($card);
         }
 
-        $hand->draw();
+        // Save the updated deck to the session
+        $session->set('deck', $deck);
+
+        // Remaning cards
+        $remainingCards = $deck->getNumCards();
+
+
+        $drawCardStrings = [];
+        foreach ($drawCard as $card) {
+            $drawCardStrings[] = $card->getAsString();
+        }
 
         $data = [
-            "num_cards" => $hand->getNumCards(),
-            "cardDraw" => $hand->getAsString()
+            "drawCard" => $drawCardStrings,
+            "cardLeft" => $remainingCards,
         ];
 
-        return $this->render('card/test/cardhand.html.twig', $data);
+        return $this->render('card/deck_draw.html.twig', $data);
     }
-
-
 }
