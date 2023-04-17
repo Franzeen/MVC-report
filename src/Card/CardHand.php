@@ -14,13 +14,6 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function draw(): void
-    {
-        foreach ($this->hand as $card) {
-            $card->draw();
-        }
-    }
-
     public function getNumCards(): int
     {
         return count($this->hand);
