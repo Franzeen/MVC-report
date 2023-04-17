@@ -18,7 +18,7 @@ main {
     max-width: $max-width;
     margin: 0 auto;
     line-height: $line-height;
-    margin-bottom: $margin-bottom;
+    padding-bottom: $footer-height;
 }
 
 h1,
@@ -81,11 +81,10 @@ header {
 footer {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
-    min-height: 100px;
-    height: auto;
-    width: 100vw;
-    padding-top: $padding;
+    overflow: hidden;
     border-top: 2px dotted black;
+    width: 100%;
+    padding-top: $padding;
+    background-color: $light-background-color;
+    height: $footer-height;
 }
