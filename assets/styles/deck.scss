@@ -1,17 +1,43 @@
 .deck {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: $padding;
     justify-content: space-between;
+    width: $max-width;
 }
 
 .card-deck {
-    font-size: 50px;
+    width: $card-width;
+    height: $card-height;
+    line-height: $card-line-height;
+    font-size: $card-font-size;
+    text-align: center;
+    background-color: $card-bg-color;
+    border-radius: $card-border-radius;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-// .card-suit {
-//     display: flex;
-//     flex-direction: column;
-//     margin-right: 1rem;
-//     text-align: center;
-// }
+.two-col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .col-content {
+        width: 48%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: $padding;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.diamonds {
+    color: $card-color-red;
+}
+
+.hearts {
+    color: $card-color-red;
+}
