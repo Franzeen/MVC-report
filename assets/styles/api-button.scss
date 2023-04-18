@@ -1,0 +1,48 @@
+.api-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: $margin-bottom;
+}
+
+
+.btn {
+    display: inline-block;
+    background-color: $card-btn-nav-color;
+    border-radius: $padding;
+    text-align: center;
+    font-size: $font-size;
+    width: 40%;
+    margin: $padding;
+    border: none;
+
+    button {
+        display: block;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        color: $light-font-color;
+        height: 100%;
+        width: 100%;
+        padding: $padding 2*$padding;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: $light-font-color;
+        height: 100%;
+        width: 100%;
+        padding: $padding 2*$padding;
+      }
+}
+
+.btn:hover {
+    background-color: darken($card-btn-nav-color, 10%);
+}
+  
+  
+.btn:active {
+    background-color: darken($card-btn-nav-color, 20%);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
