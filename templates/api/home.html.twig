@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}API page{% endblock %}
+
+{% block page_title %}API page{% endblock %}
+
+{% block content %}
+    <div class="api-nav">
+        <ul>
+            <li class="btn"><a href="{{ path('api_quote') }}">Random quote & todays date and timestamp</a></li>
+            <li class="btn"><a href="{{ path('api_deck') }}">Show a deck sorted in suit and value</a></li>
+            <li class="btn">
+                <form method="POST" action="{{ path('api_deck_shuffle') }}">
+                    <button type="submit">Show a shuffled deck</button>
+                </form>
+            </li>
+            <li class="btn">
+                <form method="POST" action="{{ path('api_deck_draw') }}">
+                    <button type="submit">Draw one (1) card from the deck and show how many is left</button>
+                </form>
+            </li>
+            <li class="btn">
+                <form method="POST" action="{{ path('api_deck_draw', {num: 5}) }}">
+                    <button type="submit">Draw five (5) cards from the deck and show how many is left</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
