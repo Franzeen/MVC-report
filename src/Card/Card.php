@@ -3,7 +3,8 @@
 namespace App\Card;
 
 // Class Card represent one card
-class Card {
+class Card
+{
     protected $value;
     protected $suit;
 
